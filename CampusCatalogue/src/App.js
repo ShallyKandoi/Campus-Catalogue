@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import ShopCard from "./components/Shopcard";
 
 function App() {
   return (
@@ -19,8 +18,6 @@ function App() {
           Learn React
         </a>
       </header>
-
-      {/* <ShopCard line1="Brahma Food Canteen" line2="Maggi Pav Bhaji" rating="4.0" /> */}
 
     </div>
   );

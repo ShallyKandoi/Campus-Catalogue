@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
-import foodShop from '../assets/canteen.png';
+import React, {useState} from "react";
 import star from '../assets/star.svg';
-import heart from '../assets/heart.svg'
+import heart from '../assets/heart.svg';
+import heartActive from '../assets/heartActive.svg'
 
 function ShopCard(props) {
     const [active, setActive]=useState(false);
@@ -10,21 +10,23 @@ function ShopCard(props) {
       };
 
     return (
-            <div style={{position: "relative", width: "328px", height: "204px", marginLeft: "auto", marginRight: "auto", backgroundColor: "#FFFFFF", borderRadius: "16px", boxShadow: "0px 0px 15px -5px", display:"flex", flexDirection:"column"}}>
+            <div style={{position: "relative", width: "85%", height: "204px", margin:"20px auto 20px auto", backgroundColor: "#FFFFFF", borderRadius: "16px", boxShadow: "0px 0px 15px -5px", display:"flex", flexDirection:"column"}}>
                 
-                <div style={{height: "132px", borderRadius: "0px 0px 12px 12px", overflow: "hidden"}}>
+                <div style={{height: "132px",width:'100%', borderRadius: "12px 12px 12px 12px", overflow: "hidden"}}>
                     
-                    <img src={foodShop} alt='' />
+                    <img src={props.img} alt='' style={{width:"100%"}} />
 
                     <div onClick={handleClick} style={{width:"36px", height:"36px",backgroundColor : active? "red" : "white" ,borderRadius:"24px",zIndex:"2", position:"absolute", top:"16px", right:"16px"}}>
-                        <img src={heart} alt="" style={{ paddingTop:"12px",position:"relative"}}/>                    
+                        {
+                            active? (<img src={heart} alt="" style={{position:"absolute",top:"12px",right:"10px"}}/>):(<img src={heartActive} alt="" style={{position:"absolute",top:"12px",right:"10px"}}/>)
+                        }
                     </div>
 
                 </div>
                 
-                <div style={{fontFamily: "General Sans", paddingLeft: "16px", textAlign: "left"}}>
+                <div style={{fontFamily: "Sans-serif", paddingLeft: "16px", textAlign: "left"}}>
 
-                    <div style={{fontWeight: "500", fontSize: "16px", paddingTop: "16px", display: "inline-block"}}>
+                    <div style={{fontWeight: "500", fontSize: "16px", color:"#020314", paddingTop: "16px", display: "inline-block"}}>
                         {props.line1}
                     </div>
 
@@ -38,7 +40,7 @@ function ShopCard(props) {
                             
                     </div>
 
-                    <div style={{fontWeight: "400", fontSize: "12px", paddingTop: "4px"}}>
+                    <div style={{fontWeight: "400", fontSize: "12px", color:"#6F6F6F", paddingTop: "4px"}}>
                         {props.line2}
                     </div>
 
